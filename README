@@ -1,11 +1,13 @@
-
-      halloc 1.2.1
-
 =============================================================================
+
+        halloc 1.2.1
+
+===
       
-	Hierarchical memory heap interface - an extension to standard
-	malloc/free interface that simplifies tasks of memory disposal 
-	when allocated structures exhibit hierarchical properties.
+	Hierarchical memory allocation interface - an extension 
+	to standard malloc/free interface that simplifies tasks 
+	of memory disposal in cases when allocated structures 
+	exhibit hierarchical properties.
 
 	http://swapped.cc/halloc
 
