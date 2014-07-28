@@ -47,7 +47,7 @@ struct hlist_item hlist_null;
  *
  */
 #define __hlist_init(h)      { &hlist_null }
-#define __hlist_init_item(i) { &hlist_null, &(i).next }
+#define __hlist_init_item(i) { &hlist_null, NULL }
 
 static_inline void hlist_init(hlist_head_t * h);
 static_inline void hlist_init_item(hlist_item_t * i);
@@ -92,7 +92,7 @@ static_inline void hlist_init(hlist_head_t * h)
 static_inline void hlist_init_item(hlist_item_t * i)
 {
 	assert(i);
-	i->prev = &i->next;
+	i->prev = NULL;
 	i->next = &hlist_null;
 }
 
@@ -114,7 +114,8 @@ static_inline void hlist_del(hlist_item_t * i)
 
 	next = i->next;
 	next->prev = i->prev;
-	*i->prev = next;
+	if (i->prev)
+		*i->prev = next;
 	
 	hlist_init_item(i);
 }
@@ -122,7 +123,8 @@ static_inline void hlist_del(hlist_item_t * i)
 static_inline void hlist_relink(hlist_item_t * i)
 {
 	assert(i);
-	*i->prev = i;
+	if (i->prev)
+		*i->prev = i;
 	i->next->prev = &i->next;
 }
 
