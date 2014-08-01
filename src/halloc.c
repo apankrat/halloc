@@ -99,7 +99,7 @@ void * halloc(void * ptr, size_t len)
 		hlist_relink_head(&p->children);
 
 		if (listed) hlist_relink(&p->siblings);
-		else        hlist_item_init(&p->siblings);
+		else        hlist_init_item(&p->siblings);
 		
 		return p->data;
 	}
