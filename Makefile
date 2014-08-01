@@ -7,8 +7,8 @@ $(LIBNAME): $(OBJS)
 	ar rcs $(LIBNAME) $(OBJS)
 
 install: $(LIBNAME)
-	cp halloc.h /usr/include
-	cp $(LIBNAME) /usr/lib
+	cp halloc.h /usr/local/include
+	cp $(LIBNAME) /usr/local/lib
 
 clean:
 	rm -f $(LIBNAME) $(OBJS)
