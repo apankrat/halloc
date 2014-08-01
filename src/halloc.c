@@ -90,12 +90,16 @@ void * halloc(void * ptr, size_t len)
 	/* realloc */
 	if (len)
 	{
+		int listed = hlist_item_listed(&p->siblings);
+
 		p = allocator(p, len + sizeof_hblock);
 		if (! p)
 			return NULL;
 
-		hlist_relink(&p->siblings);
 		hlist_relink_head(&p->children);
+
+		if (listed) hlist_relink(&p->siblings);
+		else        hlist_item_init(&p->siblings);
 		
 		return p->data;
 	}
