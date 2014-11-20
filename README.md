@@ -13,7 +13,7 @@
     
     ===
     
-    	Distributed under terms of BSD license. 
+    	Distributed under terms of the BSD license. 
     
     ===
     
@@ -30,12 +30,12 @@
 
 	halloc-1.2.2
 
-		* fixed an issue with hlist_relink in halloc when
-		  realloc'ed blocked is not on a sibling list, as
-		  per github/abergeron comments
+	        * fixed an issue with hlist_relink in halloc when
+	          realloc'ed block is not on a sibling list, as
+	          per github/abergeron comments
 
-		* changed 'make install' from /usr/ to /usr/local/
-		  as per github/ttilley comment
+	        * changed 'make install' from /usr/ to /usr/local/
+	          as per github/ttilley comment
     
     	halloc-1.2.1
     
