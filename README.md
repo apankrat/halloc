@@ -28,7 +28,7 @@
     
     ===
 
-	halloc-1.2.2
+        halloc-1.2.2
 
 	        * fixed an issue with hlist_relink in halloc when
 	          realloc'ed block is not on a sibling list, as
