@@ -190,7 +190,7 @@ char * h_strdup(const char * str)
 #define SIZE_T_MAX   ((size_t)-1)
 #define SIZE_T_HALF  (((size_t)1) << 4*sizeof(size_t))
 
-static size_t _ok_to_multiply(size_t a, size_t b)
+static int _ok_to_multiply(size_t a, size_t b)
 {
 	return (a < SIZE_T_HALF && b < SIZE_T_HALF) ||
 	       (a == 0) ||
