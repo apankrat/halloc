@@ -13,7 +13,7 @@
     
     ===
     
-    	Distributed under terms of BSD license. 
+	Distributed under terms of the BSD license. 
     
     ===
     
@@ -32,17 +32,20 @@
 
 		* added an integer overflow checks to halloc() as per
 		  derrek's comment
+
 		* added a multiplication overflow check to h_calloc()
-		* trimmed commented out code in hlist.h
+		  while at it
+
+		* pruned unused, commented out code
 
 	halloc-1.2.2
 
-		* fixed an issue with hlist_relink in halloc when
-		  realloc'ed blocked is not on a sibling list, as
-		  per github/abergeron comments
+	        * fixed an issue with hlist_relink in halloc when
+	          realloc'ed block is not on a sibling list, as per
+		  github/abergeron comments
 
-		* changed 'make install' from /usr/ to /usr/local/
-		  as per github/ttilley comment
+	        * changed 'make install' from /usr/ to /usr/local/ as per 
+		  github/ttilley comment
     
     	halloc-1.2.1
     
