@@ -54,21 +54,7 @@ static_inline void hlist_init_item(hlist_item_t * i);
 
 static_inline int hlist_item_listed(hlist_item_t * i);
 
-/* static_inline void hlist_purge(hlist_head_t * h); */
-
-/* static_inline bool_t hlist_empty(const hlist_head_t * h); */
-
-/* static_inline hlist_item_t * hlist_head(const hlist_head_t * h); */
-
-/* static_inline hlist_item_t * hlist_next(const hlist_item_t * i); */
-/* static_inline hlist_item_t * hlist_prev(const hlist_item_t * i, 
-                                           const hlist_head_t * h); */
-
 static_inline void hlist_add(hlist_head_t * h, hlist_item_t * i);
-
-/* static_inline void hlist_add_prev(hlist_item_t * l, hlist_item_t * i); */
-/* static_inline void hlist_add_next(hlist_item_t * l, hlist_item_t * i); */
-
 static_inline void hlist_del(hlist_item_t * i);
 
 static_inline void hlist_relink(hlist_item_t * i);

@@ -1,6 +1,6 @@
     =============================================================================
     
-            halloc 1.2.2
+            halloc 1.2.3
     
     ===
           
@@ -27,6 +27,13 @@
     		make clean
     
     ===
+
+	halloc-1.2.3
+
+		* added an integer overflow checks to halloc() as per
+		  derrek's comment
+		* added a multiplication overflow check to h_calloc()
+		* trimmed commented out code in hlist.h
 
 	halloc-1.2.2
 

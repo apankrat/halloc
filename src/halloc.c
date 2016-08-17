@@ -46,6 +46,8 @@ realloc_t halloc_allocator = NULL;
 /*
  *	static methods
  */
+static int  _ok_to_multiply(size_t a, size_t b);
+
 static void _set_allocator(void);
 static void * _realloc(void * ptr, size_t n);
 
@@ -65,6 +67,10 @@ void * halloc(void * ptr, size_t len)
 		_set_allocator();
 		assert(allocator);
 	}
+
+	/* a quick overflow check */
+	if (len + sizeof_hblock < sizeof_hblock)
+		return NULL;
 
 	/* calloc */
 	if (! ptr)
@@ -152,7 +158,12 @@ void * h_malloc(size_t len)
 
 void * h_calloc(size_t n, size_t len)
 {
-	void * ptr = halloc(0, len*=n);
+	void * ptr;
+
+	if (! _ok_to_multiply(n, len))
+		return NULL;
+
+	ptr = halloc(0, len *= n);
 	return ptr ? memset(ptr, 0, len) : NULL;
 }
 
@@ -176,6 +187,16 @@ char * h_strdup(const char * str)
 /*
  *	static stuff
  */
+#define SIZE_T_MAX   ((size_t)-1)
+#define SIZE_T_HALF  (((size_t)1) << 4*sizeof(size_t))
+
+static size_t _ok_to_multiply(size_t a, size_t b)
+{
+	return (a < SIZE_T_HALF && b < SIZE_T_HALF) ||
+	       (a == 0) ||
+	       (SIZE_T_MAX / a < b);
+}
+
 static void _set_allocator(void)
 {
 	void * p;
